@@ -11,4 +11,8 @@ require('packer').startup(function(use)
 	  event = {'VimEnter', 'ColorSchemePre'},
 	  config = 'vim.cmd[[colorscheme nightfox]]'
   } 
+  use {
+          'nvim-lualine/lualine.nvim',
+	  requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
 end)

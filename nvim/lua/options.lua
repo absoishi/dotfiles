@@ -1,5 +1,9 @@
---vim.opt.title = true
+vim.opt.title = true
 --vim.opt.backup = false
 vim.opt.clipboard = 'unnamedplus'
 --vim.opt.cmdheight = 2
+vim.opt.hlsearch = true
+vim.opt.mouse = 'a'
 vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.wrap = false

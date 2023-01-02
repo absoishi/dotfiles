@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/Users/absoishi/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["nightfox.nvim"] = {
     config = { "vim.cmd[[colorscheme nightfox]]" },
     loaded = false,
@@ -81,6 +86,12 @@ _G.packer_plugins = {
     only_cond = false,
     path = "/Users/absoishi/.local/share/nvim/site/pack/packer/opt/nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = false,
+    needs_bufread = false,
+    path = "/Users/absoishi/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = false,
@@ -95,8 +106,8 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nightfox.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au ColorSchemePre * ++once lua require("packer.load")({'nightfox.nvim'}, { event = "ColorSchemePre *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'nightfox.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 

@@ -5,3 +5,4 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 
 require 'plugins'
 require 'options'
+require 'mappings'

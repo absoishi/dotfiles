@@ -104,11 +104,11 @@ require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {
-	  "nvim-telescope/telescope-frecency.nvim",
+	  'nvim-telescope/telescope-frecency.nvim',
 	  config = function ()
-		  require"telescope".load_extension("frecency")
+		  require'telescope'.load_extension('frecency')
 	  end,
-	  requires = {"kkharji/sqlite.lua"}
+	  requires = {'kkharji/sqlite.lua'}
   }
   use {
 	  'nvim-telescope/telescope-packer.nvim',
@@ -130,9 +130,9 @@ require('packer').startup(function(use)
 	  end
   }
   use {
-	  "yioneko/nvim-yati",
+	  'yioneko/nvim-yati',
 	  tag = "*",
-	  requires = "nvim-treesitter/nvim-treesitter"
+	  requires = 'nvim-treesitter/nvim-treesitter'
   }
   use {
 	  'nvim-treesitter/nvim-treesitter-context'
@@ -153,6 +153,124 @@ require('packer').startup(function(use)
 	  config = function ()
 	  	vim.opt.termguicolors = true
 		require('bufferline').setup {}
+	  end
+  }
+  use {
+	  'RRethy/vim-illuminate'
+  }
+  use {
+	  'folke/todo-comments.nvim',
+	  requires = 'nvim-lua/plenary.nvim',
+	  config = function()
+		  require('todo-comments').setup {}
+	  end
+  }
+  use {
+	  'mvllow/modes.nvim',
+	  config = function ()
+	  	require('modes').setup()
+	  end
+  }
+  use {
+	  'sidebar-nvim/sidebar.nvim',
+	  config = function ()
+	  	local sidebar = require('sidebar-nvim')
+		local opts = {open = true}
+		sidebar.setup(opts)
+	  end
+  }
+  use {
+	  'petertriho/nvim-scrollbar',
+	  config = function ()
+	  	require('scrollbar').setup()
+	  end
+  }
+  use {
+	  'AckslD/nvim-neoclip.lua',
+	  requires = {
+		  { 'nvim-telescope/telescope.nvim' },
+		  { 'kkharji/sqlite.lua' }
+	  },
+	  config = function()
+		require('neoclip').setup()
+		require('telescope').load_extension('neoclip')
+	  end
+  }
+  use {
+	  'kevinhwang91/nvim-hlslens',
+	  config = function ()
+	  	require('hlslens').setup()
+	  end
+  }
+  use {
+	  'nvim-neo-tree/neo-tree.nvim',
+	  branch = 'v2.x',
+	  requires = {
+		  'nvim-lua/plenary.nvim',
+		  'nvim-tree/nvim-web-devicons',
+		  'MunifTanjim/nui.nvim'
+	  }
+  }
+  use {
+	  'folke/which-key.nvim',
+	  config = function ()
+		  vim.o.timeout = true
+		  vim.o.timeoutlen = 300
+		  require("which-key").setup {}
+	  end
+  }
+  use {
+	  'kevinhwang91/nvim-bqf',
+	  config = function ()
+	  	require('bqf').setup()
+	  end
+  }
+  use {
+	  'jghauser/mkdir.nvim',
+	  config = function ()
+	  	require('mkdir')
+	  end
+  }
+  use {
+	  'akinsho/toggleterm.nvim',
+	  tag = '*',
+	  config = function ()
+	  	require('toggleterm').setup()
+	  end
+  }
+  use {
+	  'mrjones2014/legendary.nvim',
+	  requires = 'kkharji/sqlite.lua',
+	  config = function ()
+	  	require('legendary').setup()
+	  end
+  }
+  use {
+	  'lukas-reineke/indent-blankline.nvim',
+	  config = function ()
+	  	vim.opt.list = true
+		vim.opt.listchars:append 'eol:↴'
+		require('indent_blankline').setup {
+			show_end_of_line = true
+		}
+	  end
+  }
+  use {
+	  'numToStr/Comment.nvim',
+	  config = function ()
+	  	require('Comment').setup()
+	  end
+  }
+  use {
+	  'andymass/vim-matchup',
+	  setup = function ()
+	  	vim.g.matchup_matchparen_offscreen = { method = 'popup' }
+	  end
+  }
+  use {
+	  'stevearc/aerial.nvim',
+	  config = function ()
+	  	require('aerial').setup()
 	  end
   }
 end)

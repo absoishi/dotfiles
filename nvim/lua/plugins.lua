@@ -1,16 +1,39 @@
 vim.cmd.packadd 'packer.nvim'
 
 require('packer').startup(function(use)
+  -- ------------------------------------------------------------------
+  -- Installer
+
+  -- Plugin Manager
   use {
 	  'wbthomason/packer.nvim',
 	  opt = true
   }
 
+  -- External package Installer
+  use {
+	  'williamboman/mason.nvim',
+	  config = function ()
+		  require('mason').setup()
+	  end
+  }
+  -- ------------------------------------------------------------------
+  -- Lua Library
+  use {
+	  'nvim-lua/plenary.nvim'
+  }
+  use {
+	  'kkharji/sqlite.lua'
+  }
+  -- ------------------------------------------------------------------  
+  -- ColorScheme
   use {
 	  'EdenEast/nightfox.nvim',
 	  event = {'VimEnter', 'ColorSchemePre'},
 	  config = 'vim.cmd[[colorscheme nightfox]]'
   }
+  -- ------------------------------------------------------------------
+  -- Statusline
   use {
           'nvim-lualine/lualine.nvim',
 	  requires = {'kyazdani42/nvim-web-devicons', opt = true},
@@ -18,6 +41,8 @@ require('packer').startup(function(use)
 		  require('lualine').setup()
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Auto Completion
   use {
 	  'hrsh7th/nvim-cmp',
 	  config = function ()
@@ -48,14 +73,10 @@ require('packer').startup(function(use)
   use {
 	  'hrsh7th/cmp-nvim-lsp-signature-help'
   }
+  -- ------------------------------------------------------------------
+  -- Language Server Protocol
   use {
 	  'neovim/nvim-lspconfig'
-  }
-  use {
-	  'williamboman/mason.nvim',
-	  config = function ()
-		  require('mason').setup()
-	  end
   }
   use {
 	  'williamboman/mason-lspconfig.nvim'
@@ -85,20 +106,14 @@ require('packer').startup(function(use)
 	  	require('fidget').setup {}
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Snippet
   use {
 	  'L3MON4D3/LuaSnip',
 	  event = 'VimEnter'
   }
-  use {
-	  'windwp/nvim-autopairs',
-	  event = 'VimEnter',
-	  config = function ()
-		  require('nvim-autopairs').setup {}
-	  end
-  }
---  use {
---	  'nvim-lua/plenary.nvim'
---  }
+  -- ------------------------------------------------------------------
+  -- telescope.nvim
   use {
 	  'nvim-telescope/telescope.nvim',
 	  requires = { {'nvim-lua/plenary.nvim'} }
@@ -116,12 +131,14 @@ require('packer').startup(function(use)
 		  require('telescope').load_extension('packer')
 	  end
   }
---  use {
---	  'LinArcX/telescope-command-paletter.nvim',
---	  config = function ()
---		  require('telescope').load_extension('command_palette')
---	  end
---  }
+  --  use {
+  --	  'LinArcX/telescope-command-paletter.nvim',
+  --	  config = function ()
+  --		  require('telescope').load_extension('command_palette')
+  --	  end
+  --  }
+  -- ------------------------------------------------------------------
+  -- Treesitter
   use {
 	  'nvim-treesitter/nvim-treesitter',
 	  run = function ()
@@ -147,6 +164,8 @@ require('packer').startup(function(use)
 	  'SmiteshP/nvim-gps',
 	  requires = 'nvim-treesitter/nvim-treesitter'
   }
+  -- ------------------------------------------------------------------
+  -- bufferline
   use {
 	  'akinsho/bufferline.nvim',
 	  requires = 'nvim-tree/nvim-web-devicons',
@@ -155,6 +174,8 @@ require('packer').startup(function(use)
 		require('bufferline').setup {}
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Highlight
   use {
 	  'RRethy/vim-illuminate'
   }
@@ -171,6 +192,8 @@ require('packer').startup(function(use)
 	  	require('modes').setup()
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Sidebar
   use {
 	  'sidebar-nvim/sidebar.nvim',
 	  config = function ()
@@ -179,12 +202,16 @@ require('packer').startup(function(use)
 		sidebar.setup(opts)
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Scrollbar
   use {
 	  'petertriho/nvim-scrollbar',
 	  config = function ()
 	  	require('scrollbar').setup()
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Yank
   use {
 	  'AckslD/nvim-neoclip.lua',
 	  requires = {
@@ -196,12 +223,16 @@ require('packer').startup(function(use)
 		require('telescope').load_extension('neoclip')
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Find
   use {
 	  'kevinhwang91/nvim-hlslens',
 	  config = function ()
 	  	require('hlslens').setup()
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Filer
   use {
 	  'nvim-neo-tree/neo-tree.nvim',
 	  branch = 'v2.x',
@@ -211,6 +242,8 @@ require('packer').startup(function(use)
 		  'MunifTanjim/nui.nvim'
 	  }
   }
+  -- ------------------------------------------------------------------
+  -- Mapping
   use {
 	  'folke/which-key.nvim',
 	  config = function ()
@@ -219,18 +252,24 @@ require('packer').startup(function(use)
 		  require("which-key").setup {}
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Quickfix
   use {
 	  'kevinhwang91/nvim-bqf',
 	  config = function ()
 	  	require('bqf').setup()
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Command
   use {
 	  'jghauser/mkdir.nvim',
 	  config = function ()
 	  	require('mkdir')
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Terminal
   use {
 	  'akinsho/toggleterm.nvim',
 	  tag = '*',
@@ -238,6 +277,8 @@ require('packer').startup(function(use)
 	  	require('toggleterm').setup()
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- CommandPalette
   use {
 	  'mrjones2014/legendary.nvim',
 	  requires = 'kkharji/sqlite.lua',
@@ -245,6 +286,8 @@ require('packer').startup(function(use)
 	  	require('legendary').setup()
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Indent
   use {
 	  'lukas-reineke/indent-blankline.nvim',
 	  config = function ()
@@ -255,10 +298,21 @@ require('packer').startup(function(use)
 		}
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Comment
   use {
 	  'numToStr/Comment.nvim',
 	  config = function ()
 	  	require('Comment').setup()
+	  end
+  }
+  -- ------------------------------------------------------------------
+  -- Brackets
+  use {
+	  'windwp/nvim-autopairs',
+	  event = 'VimEnter',
+	  config = function ()
+		  require('nvim-autopairs').setup {}
 	  end
   }
   use {
@@ -267,10 +321,43 @@ require('packer').startup(function(use)
 	  	vim.g.matchup_matchparen_offscreen = { method = 'popup' }
 	  end
   }
+  -- ------------------------------------------------------------------
+  -- Code outline
   use {
 	  'stevearc/aerial.nvim',
 	  config = function ()
 	  	require('aerial').setup()
 	  end
+  }
+  -- ------------------------------------------------------------------
+  -- Git
+  use {
+	  'TimUntersberger/neogit',
+	  requires = 'nvim-lua/plenary.nvim',
+	  config = function ()
+	  	require('neogit').setup {}
+	  end
+  }
+  use {
+	  'sindrets/diffview.nvim',
+	  requires = 'nvim-lua/plenary.nvim'
+  }
+  use {
+	  'akinsho/git-conflict.nvim',
+	  tag = '*',
+	  config = function ()
+	  	require('git-conflict').setup()
+	  end
+  }
+  use {
+	  'lewis6991/gitsigns.nvim',
+	  config = function ()
+	  	require('gitsigns').setup()
+	  end
+  }
+  -- ------------------------------------------------------------------
+  -- Markdown
+  use {
+	  'iamcco/markdown-preview.nvim'
   }
 end)

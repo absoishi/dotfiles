@@ -84,12 +84,19 @@ require('packer').startup(function(use)
   use {
 	  'neovim/nvim-lspconfig'
   }
-  use {
-	  'glepnir/lspsaga.nvim',
-	  config = function ()
-		require('lspsaga').init_lsp_saga()
-	  end
-  }
+  -- use {
+	--   'glepnir/lspsaga.nvim',
+	--   config = function ()
+	-- 	require('lspsaga').init_lsp_saga()
+	--   end
+  -- }
+	use {
+		'nvimdev/lspsaga.nvim',
+		after = 'nvim-lspconfig',
+		config = function()
+			require('lspsaga').setup({})
+		end
+	}
   use {
 	  'folke/lsp-colors.nvim',
 	  config = function ()
@@ -294,16 +301,24 @@ require('packer').startup(function(use)
   }
   -- ------------------------------------------------------------------
   -- Indent
-  use {
-	  'lukas-reineke/indent-blankline.nvim',
-	  config = function ()
-		vim.opt.list = true
-		vim.opt.listchars:append 'eol:↴'
-		require('indent_blankline').setup {
-			show_end_of_line = true
-		}
-	  end
-  }
+
+	--version2
+  -- use {
+	--   'lukas-reineke/indent-blankline.nvim',
+	--   config = function ()
+	-- 	vim.opt.list = true
+	-- 	vim.opt.listchars:append 'eol:↴'
+	-- 	require('indent_blankline').setup {
+	-- 		show_end_of_line = true
+	-- 	}
+	--   end
+  -- }
+
+	--version3
+	use {
+		'lukas-reineke/indent-blankline.nvim',
+		require('ibl').setup()
+	}
   -- ------------------------------------------------------------------
   -- Comment
   use {

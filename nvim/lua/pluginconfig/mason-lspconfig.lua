@@ -1,4 +1,9 @@
-require('mason-lspconfig').setup()
+require('mason').setup()
+require('mason-lspconfig').setup({
+    ensure_installed = {
+        'lua_ls',
+    }
+})
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -34,23 +39,10 @@ local on_attach = function(client, bufnr)
         vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 end
 
-local lspconfig = require('lspconfig')
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-require('mason-lspconfig').setup_handlers({
-	function(server_name)
-		lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
-	end,
-	['sumneko_lua'] = function ()
-		lspconfig.sumneko_lua.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			settings = {
-				Lua = {
-					diagnostics = {
-						globals = { 'vim' },
-					},
-				},
-			},
-		})
-	end,
-})
+-- local lspconfig = require('lspconfig')
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+-- require('mason-lspconfig').setup_handlers({
+-- 	function(server_name)
+-- 		lspconfig[server_name].setup({ capabilities = capabilities, on_attach = on_attach })
+-- 	end
+-- })

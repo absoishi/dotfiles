@@ -1,9 +1,3 @@
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
 -- Emacs style
 vim.keymap.set("c", "<C-a>", "<Home>", { noremap = true, silent = false })
 if not vim.g.vscode then

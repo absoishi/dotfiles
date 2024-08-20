@@ -115,53 +115,53 @@ return {
   -- },
   -- ------------------------------------------------------------------
   -- LSP
-  {
-    'williamboman/mason.nvim',
-    config = function()
-      require('mason').setup()
-    end,
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
-    config = function()
-      require('mason-lspconfig').setup({
-        ensure_installed = {
-          'lua_ls',
-        },
-      })
-    end,
-  },
-  {
-    'neovim/nvim-lspconfig',
-    config = function()
-      require("lspconfig").lua_ls.setup {}
-    end,
-  },
-  {
-		'nvimdev/lspsaga.nvim',
-		config = function()
-			require('lspsaga').setup({})
-		end,
-	},
-  {
-    'folke/lsp-colors.nvim',
-    config = function()
-      require('lsp-colors').setup()
-    end,
-  },
-  {
-    'folke/trouble.nvim',
-    dependencies = {'kyazdani42/nvim-web-devicons'},
-    config = function()
-      require('trouble').setup {}
-    end,
-  },
-  {
-    'j-hui/fidget.nvim',
-    config = function()
-      require('fidget').setup {}
-    end,
-  },
+  -- {
+  --   'williamboman/mason.nvim',
+  --   config = function()
+  --     require('mason').setup()
+  --   end,
+  -- },
+  -- {
+  --   'williamboman/mason-lspconfig.nvim',
+  --   config = function()
+  --     require('mason-lspconfig').setup({
+  --       ensure_installed = {
+  --         'lua_ls',
+  --       },
+  --     })
+  --   end,
+  -- },
+  -- {
+  --   'neovim/nvim-lspconfig',
+  --   config = function()
+  --     require("lspconfig").lua_ls.setup {}
+  --   end,
+  -- },
+  -- {
+	-- 	'nvimdev/lspsaga.nvim',
+	-- 	config = function()
+	-- 		require('lspsaga').setup({})
+	-- 	end,
+	-- },
+  -- {
+  --   'folke/lsp-colors.nvim',
+  --   config = function()
+  --     require('lsp-colors').setup()
+  --   end,
+  -- },
+  -- {
+  --   'folke/trouble.nvim',
+  --   dependencies = {'kyazdani42/nvim-web-devicons'},
+  --   config = function()
+  --     require('trouble').setup {}
+  --   end,
+  -- },
+  -- {
+  --   'j-hui/fidget.nvim',
+  --   config = function()
+  --     require('fidget').setup {}
+  --   end,
+  -- },
   -- ------------------------------------------------------------------
   -- mini
   {

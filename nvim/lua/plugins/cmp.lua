@@ -5,11 +5,37 @@ return{
       local cmp = require'cmp'
 
       cmp.setup({
+        formatting = {
+          -- fields = {'abbr', 'kind', 'menu'},
+          format = require("lspkind").cmp_format({
+            with_text = true,
+            menu = {
+              buffer = "[Buffer]",
+              nvim_lsp = "[LSP]",
+              cmp_tabnine = "[TabNine]",
+              copilot = "[Copilot]",
+              luasnip = "[LuaSnip]",
+              nvim_lua = "[NeovimLua]",
+              latex_symbols = "[LaTeX]",
+              path = "[Path]",
+              omni = "[Omni]",
+              spell = "[Spell]",
+              emoji = "[Emoji]",
+              calc = "[Calc]",
+              rg = "[Rg]",
+              treesitter = "[TS]",
+              dictionary = "[Dictionary]",
+              mocword = "[mocword]",
+              cmdline = "[Cmd]",
+              cmdline_history = "[History]",
+            },
+          }),
+        },
         snippet = {
           -- REQUIRED - you must specify a snippet engine
           expand = function(args)
             vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-            -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
             -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
             -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
           end,
@@ -74,5 +100,7 @@ return{
     'hrsh7th/cmp-nvim-lua',
     'saadparwaiz1/cmp_luasnip',
     'hrsh7th/cmp-nvim-lsp-signature-help',
+    'L3MON4D3/LuaSnip',
+    'onsails/lspkind.nvim',
   },
 }

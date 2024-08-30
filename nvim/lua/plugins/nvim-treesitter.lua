@@ -42,6 +42,5 @@ return{
     'nvim-treesitter/nvim-treesitter-context',
     'mrjones2014/nvim-ts-rainbow',
     'haringsrob/nvim_context_vt',
-    'SmiteshP/nvim-gps',
   },
 }

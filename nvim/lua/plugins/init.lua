@@ -229,32 +229,32 @@ return {
   -- },
   -- ------------------------------------------------------------------
   -- bufferline
-  {'akinsho/bufferline.nvim',
-  version = "*",
-  dependencies = {'nvim-tree/nvim-web-devicons'},
-  config = function()
-		vim.opt.termguicolors = true
-		require('bufferline').setup {}
-  end,
-  },
+  -- {'akinsho/bufferline.nvim',
+  -- version = "*",
+  -- dependencies = {'nvim-tree/nvim-web-devicons'},
+  -- config = function()
+	-- 	vim.opt.termguicolors = true
+	-- 	require('bufferline').setup {}
+  -- end,
+  -- },
   -- ------------------------------------------------------------------
   -- Highlight
-  {
-    'RRethy/vim-illuminate'
-  },
-  {
-    'folke/todo-comments.nvim',
-    dependencies = {'nvim-lua/plenary.nvim'},
-    config = function()
-      require('todo-comments').setup {}
-    end,
-  },
-  {
-    'mvllow/modes.nvim',
-    config = function()
-      require('modes').setup()
-    end,
-  },
+  -- {
+  --   'RRethy/vim-illuminate'
+  -- },
+  -- {
+  --   'folke/todo-comments.nvim',
+  --   dependencies = {'nvim-lua/plenary.nvim'},
+  --   config = function()
+  --     require('todo-comments').setup {}
+  --   end,
+  -- },
+  -- {
+  --   'mvllow/modes.nvim',
+  --   config = function()
+  --     require('modes').setup()
+  --   end,
+  -- },
   -- ------------------------------------------------------------------
   -- Sidebar
   {
